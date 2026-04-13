@@ -587,11 +587,23 @@ const handleSaveKeepsake = async () => {
              <h2 className="text-xl mb-2 text-gray-800 text-center">{plushie.name} says:</h2>
 <p className="text-sm text-gray-500 mb-4 text-center">A special little moment, just for you.</p>
 
-<div className="relative p-5 rounded-3xl border-2 border-dashed border-[#E8AEB7] bg-gradient-to-br from-[#EAF4EF] via-[#DDEEE6] to-[#EAF4EF] shadow-md max-w-md mx-auto">
-  <div className="bg-white/85 rounded-2xl p-5 border border-[#E8AEB7]">
-    <p className="whitespace-pre-line text-center text-gray-700 leading-7">
+<div
+  ref={keepsakeRef}
+  className="mx-auto w-full max-w-md aspect-[3/4] bg-contain bg-no-repeat bg-center relative"
+  style={{ backgroundImage: "url('/keepsake-template.png')" }}
+>
+  <div className="absolute inset-[14%_12%_14%_12%] flex flex-col items-center justify-center text-center">
+    <p className="text-sm text-gray-500 mb-2">This Little One Has a Message</p>
+
+    <p className="text-base font-semibold text-gray-800 mb-4">
+      {moments.find((m) => m.id === momentId)?.label}
+    </p>
+
+    <p className="whitespace-pre-line text-gray-700 leading-7 text-sm">
       {message}
     </p>
+
+    <p className="mt-4 text-sm text-gray-600">— {plushie.name}</p>
   </div>
 </div>
 
@@ -618,7 +630,12 @@ const handleSaveKeepsake = async () => {
     </a>
   </div>
 </div>
-
+<Button
+  onClick={handleSaveKeepsake}
+  className="mt-6 w-full bg-[#9FB7A3] hover:bg-[#8FA89A] text-white p-3 rounded-2xl"
+>
+  Save as a Keepsake
+</Button>
 <Button
   onClick={() => setGenerated(false)}
   className="mt-6 w-full border border-[#E8AEB7] bg-white text-gray-700 hover:bg-[#EAF4EF] p-3 rounded-2xl"
