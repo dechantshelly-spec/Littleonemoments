@@ -621,12 +621,6 @@ const handleSaveKeepsake = async () => {
   </div>
 </div>
 <Button
-  onClick={handleSaveKeepsake}
-  className="mt-6 w-full bg-[#9FB7A3] hover:bg-[#8FA89A] text-white p-3 rounded-2xl"
->
-  Save as a Keepsake
-</Button>
-<Button
   onClick={() => setGenerated(false)}
   className="mt-6 w-full border border-[#E8AEB7] bg-white text-gray-700 hover:bg-[#EAF4EF] p-3 rounded-2xl"
 >
