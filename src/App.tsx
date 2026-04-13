@@ -469,14 +469,7 @@ export default function App() {
   };
 
 const handleSaveKeepsake = async () => {
-  alert("button clicked");
-
-  if (!keepsakeRef.current) {
-    alert("keepsakeRef is missing");
-    return;
-  }
-
-  alert("ref found");
+  if (!keepsakeRef.current) return;
 
   try {
     const canvas = await html2canvas(keepsakeRef.current, {
@@ -485,13 +478,15 @@ const handleSaveKeepsake = async () => {
       backgroundColor: null,
     });
 
-    alert("canvas created");
-
     const image = canvas.toDataURL("image/png");
+
     const link = document.createElement("a");
     link.href = image;
     link.download = "little-moment-keepsake.png";
+
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   } catch (error) {
     console.error(error);
     alert("save failed");
