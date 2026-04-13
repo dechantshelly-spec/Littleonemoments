@@ -469,24 +469,28 @@ export default function App() {
   };
 
 const handleSaveKeepsake = async () => {
-  alert("button clicked");
+  if (!keepsakeRef.current) return;
 
-  if (!keepsakeRef.current) {
-    alert("keepsakeRef is missing");
-    return;
+  try {
+    const canvas = await html2canvas(keepsakeRef.current, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: null,
+    });
+
+    const image = canvas.toDataURL("image/png");
+
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "little-moment-keepsake.png";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } catch (error) {
+    console.error(error);
+    alert("save failed");
   }
-
-  const canvas = await html2canvas(keepsakeRef.current, {
-    scale: 2,
-    useCORS: true,
-    backgroundColor: null,
-  });
-
-  const image = canvas.toDataURL("image/png");
-  const link = document.createElement("a");
-  link.href = image;
-  link.download = "little-moment-keepsake.png";
-  link.click();
 };
   return (
     <div className="min-h-screen bg-[#FFF6EE] p-6">
