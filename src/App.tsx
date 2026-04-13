@@ -1,4 +1,5 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
+import html2canvas from "html2canvas";
 
 function Button({ className = "", children, ...props }) {
   return <button className={className} {...props}>{children}</button>;
@@ -432,6 +433,7 @@ export default function App() {
   const plushie = plushies.find(p => p.id === plushieId) || plushies[0];
 
   const message = useMemo(() => buildMessage(name, momentId, plushie), [name, momentId, plushie]);
+  const keepsakeRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (event) => {
@@ -632,4 +634,3 @@ export default function App() {
     </div>
   );
 }
-
