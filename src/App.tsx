@@ -628,18 +628,10 @@ const handleSaveKeepsake = async () => {
 </Button>
 
 <Button
-  onClick={() => {
-    const blob = new Blob([message], { type: "text/plain;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "stitch-and-tales-message.txt";
-    a.click();
-    URL.revokeObjectURL(url);
-  }}
+  onClick={handleSaveKeepsake}
   className="mt-3 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
 >
-  Save-Print as a Keepsake/Gift Card
+  Save as a Keepsake
 </Button>
 
 <p className="mt-4 text-center text-sm text-gray-600">
