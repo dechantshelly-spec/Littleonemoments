@@ -557,15 +557,73 @@ export default function App() {
             </div>
           ) : (
             <>
-              <h2 className="text-xl mb-4">{plushie.name} says:</h2>
+             <h2 className="text-xl mb-2 text-gray-800 text-center">{plushie.name} says:</h2>
+<p className="text-sm text-gray-500 mb-4 text-center">A special little moment, just for you.</p>
 
-              <div className="p-5 rounded-3xl border border-[#E8AEB7] bg-[#EAF4EF]">
-                <p className="whitespace-pre-line text-center">{message}</p>
-              </div>
+<div className="relative p-5 rounded-3xl border-2 border-dashed border-[#E8AEB7] bg-gradient-to-br from-[#EAF4EF] via-[#DDEEE6] to-[#EAF4EF] shadow-md max-w-md mx-auto">
+  <div className="bg-white/85 rounded-2xl p-5 border border-[#E8AEB7]">
+    <p className="whitespace-pre-line text-center text-gray-700 leading-7">
+      {message}
+    </p>
+  </div>
+</div>
 
-              <Button onClick={() => setGenerated(false)} className="mt-6 w-full border p-3 rounded-2xl">
-                Create Another
-              </Button>
+<div className="mt-6 text-center">
+  <p className="text-sm text-gray-600 mb-3">
+    Follow along for new little stories and friends
+  </p>
+  <div className="flex gap-3 justify-center flex-wrap">
+    <a
+      href="YOUR_FACEBOOK_LINK"
+      target="_blank"
+      rel="noreferrer"
+      className="px-4 py-2 rounded-xl border border-[#E8AEB7] bg-white hover:bg-[#EAF4EF] text-sm"
+    >
+      Facebook
+    </a>
+    <a
+      href="YOUR_INSTAGRAM_LINK"
+      target="_blank"
+      rel="noreferrer"
+      className="px-4 py-2 rounded-xl border border-[#E8AEB7] bg-white hover:bg-[#EAF4EF] text-sm"
+    >
+      Instagram
+    </a>
+  </div>
+</div>
+
+<Button
+  onClick={() => setGenerated(false)}
+  className="mt-6 w-full border border-[#E8AEB7] bg-white text-gray-700 hover:bg-[#EAF4EF] p-3 rounded-2xl"
+>
+  Create Another Moment
+</Button>
+
+<Button
+  onClick={() => {
+    const blob = new Blob([message], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "stitch-and-tales-message.txt";
+    a.click();
+    URL.revokeObjectURL(url);
+  }}
+  className="mt-3 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
+>
+  Save as a Keepsake
+</Button>
+
+<p className="mt-4 text-center text-sm text-gray-600">
+  What {plushie.name} loves to say:{" "}
+  {plushie.name === "Oli the Octopus"
+    ? "Think it through, then we do."
+    : plushie.name === "Sarah the Turtle"
+    ? "Slow and steady feels just right."
+    : plushie.name === "Bean the Bunny"
+    ? "Hop with me, we'll find our glee!"
+    : "Little by little, brave can be."}
+</p>
             </>
           )}
         </div>
