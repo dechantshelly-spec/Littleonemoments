@@ -468,28 +468,30 @@ export default function App() {
     setShowInstallHelp(true);
   };
 
-const handleSaveKeepsake = async () => {
-  if (!keepsakeRef.current) return;
+<div
+  ref={keepsakeRef}
+  className="mx-auto w-full max-w-md relative"
+>
+  <img
+    src="/keepsake-template.png"
+    alt="Keepsake template"
+    className="w-full h-auto block rounded-3xl"
+  />
 
-  try {
-    const canvas = await html2canvas(keepsakeRef.current, {
-      scale: 2,
-      useCORS: true,
-      backgroundColor: "#FFF6EE",
-    });
+  <div className="absolute inset-[14%_12%_14%_12%] flex flex-col items-center justify-center text-center">
+    <p className="text-sm text-gray-500 mb-2">This Little One Has a Message</p>
 
-    const image = canvas.toDataURL("image/png");
-    const link = document.createElement("a");
-    link.href = image;
-    link.download = "little-moment-keepsake.png";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  } catch (error) {
-    console.error(error);
-    alert("save failed");
-  }
-};
+    <p className="text-base font-semibold text-gray-800 mb-4">
+      {moments.find((m) => m.id === momentId)?.label}
+    </p>
+
+    <p className="whitespace-pre-line text-gray-700 leading-7 text-sm">
+      {message}
+    </p>
+
+    <p className="mt-4 text-sm text-gray-600">— {plushie.name}</p>
+  </div>
+</div>
   return (
     <div className="min-h-screen bg-[#FFF6EE] p-6">
       <div className="max-w-4xl mx-auto mb-4 flex justify-end">
