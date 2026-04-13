@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 
 function Button({ className = "", children, ...props }) {
   return <button className={className} {...props}>{children}</button>;
@@ -426,19 +426,54 @@ export default function App() {
   const [plushieId, setPlushieId] = useState("oli");
   const [generated, setGenerated] = useState(false);
   const [showInstallHelp, setShowInstallHelp] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [canInstall, setCanInstall] = useState(false);
 
   const plushie = plushies.find(p => p.id === plushieId) || plushies[0];
 
   const message = useMemo(() => buildMessage(name, momentId, plushie), [name, momentId, plushie]);
 
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (event) => {
+      event.preventDefault();
+      setDeferredPrompt(event);
+      setCanInstall(true);
+    };
+
+    const handleAppInstalled = () => {
+      setDeferredPrompt(null);
+      setCanInstall(false);
+      setShowInstallHelp(false);
+    };
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener("appinstalled", handleAppInstalled);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      window.removeEventListener("appinstalled", handleAppInstalled);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      setDeferredPrompt(null);
+      setCanInstall(false);
+      return;
+    }
+    setShowInstallHelp(true);
+  };
+
   return (
     <div className="min-h-screen bg-[#FFF6EE] p-6">
       <div className="max-w-4xl mx-auto mb-4 flex justify-end">
         <button
-          onClick={() => setShowInstallHelp(true)}
+          onClick={handleInstallClick}
           className="px-4 py-2 rounded-2xl border border-[#E8AEB7] bg-white text-gray-700 hover:bg-[#EAF4EF] text-sm"
         >
-          Add to Home Screen
+          {canInstall ? "Install App" : "Add to Home Screen"}
         </button>
       </div>
 
@@ -446,7 +481,7 @@ export default function App() {
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl p-6 max-w-md w-full shadow-xl border border-[#E8AEB7]">
             <h2 className="text-xl font-semibold mb-3 text-gray-800">Add to Your Phone</h2>
-            <p className="text-sm mb-4 text-gray-600">Save this app so it is easy to open anytime.</p>
+            <p className="text-sm mb-4 text-gray-600">Save this app so it is easy to open anytime. On some Android phones, you may see an install prompt automatically.</p>
             <div className="text-sm space-y-3 text-gray-700">
               <div>
                 <strong>Android</strong>
@@ -454,7 +489,7 @@ export default function App() {
               </div>
               <div>
                 <strong>iPhone</strong>
-                <p>Tap the share button, then choose <em>Add to Home Screen</em>.</p>
+                <p>Tap the share button, then choose <em>{canInstall ? "Install App" : "Add to Home Screen"}</em>.</p>
               </div>
             </div>
             <button
@@ -539,3 +574,4 @@ export default function App() {
     </div>
   );
 }
+
