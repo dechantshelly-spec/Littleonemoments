@@ -611,7 +611,7 @@ export default function App() {
   }}
   className="mt-3 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
 >
-  Save as a Keepsake
+  Save-Print as a Keepsake/Gift Card
 </Button>
 
 <p className="mt-4 text-center text-sm text-gray-600">
