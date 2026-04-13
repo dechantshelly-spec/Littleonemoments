@@ -467,16 +467,6 @@ export default function App() {
     }
     setShowInstallHelp(true);
   };
-const handleInstallClick = async () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
-    setDeferredPrompt(null);
-    setCanInstall(false);
-    return;
-  }
-  setShowInstallHelp(true);
-};
 
 const handleSaveKeepsake = async () => {
   if (!keepsakeRef.current) return;
