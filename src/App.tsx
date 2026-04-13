@@ -467,7 +467,32 @@ export default function App() {
     }
     setShowInstallHelp(true);
   };
+const handleInstallClick = async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    setDeferredPrompt(null);
+    setCanInstall(false);
+    return;
+  }
+  setShowInstallHelp(true);
+};
 
+const handleSaveKeepsake = async () => {
+  if (!keepsakeRef.current) return;
+
+  const canvas = await html2canvas(keepsakeRef.current, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: null,
+  });
+
+  const image = canvas.toDataURL("image/png");
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "little-moment-keepsake.png";
+  link.click();
+};
   return (
     <div className="min-h-screen bg-[#FFF6EE] p-6">
       <div className="max-w-4xl mx-auto mb-4 flex justify-end">
