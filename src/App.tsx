@@ -492,6 +492,7 @@ export default function App() {
     <p className="mt-4 text-sm text-gray-600">— {plushie.name}</p>
   </div>
 </div>
+  
   return (
     <div className="min-h-screen bg-[#FFF6EE] p-6">
       <div className="max-w-4xl mx-auto mb-4 flex justify-end">
