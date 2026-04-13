@@ -574,7 +574,7 @@ export default function App() {
   </p>
   <div className="flex gap-3 justify-center flex-wrap">
     <a
-      href="YOUR_FACEBOOK_LINK"
+      href="https://www.facebook.com/shelly.dechant"
       target="_blank"
       rel="noreferrer"
       className="px-4 py-2 rounded-xl border border-[#E8AEB7] bg-white hover:bg-[#EAF4EF] text-sm"
@@ -582,7 +582,7 @@ export default function App() {
       Facebook
     </a>
     <a
-      href="YOUR_INSTAGRAM_LINK"
+      href="https://www.instagram.com/shellydechant/"
       target="_blank"
       rel="noreferrer"
       className="px-4 py-2 rounded-xl border border-[#E8AEB7] bg-white hover:bg-[#EAF4EF] text-sm"
