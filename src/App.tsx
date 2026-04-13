@@ -475,15 +475,13 @@ const handleSaveKeepsake = async () => {
     const canvas = await html2canvas(keepsakeRef.current, {
       scale: 2,
       useCORS: true,
-      backgroundColor: null,
+      backgroundColor: "#FFF6EE",
     });
 
     const image = canvas.toDataURL("image/png");
-
     const link = document.createElement("a");
     link.href = image;
     link.download = "little-moment-keepsake.png";
-
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -587,10 +585,16 @@ const handleSaveKeepsake = async () => {
 <p className="text-sm text-gray-500 mb-4 text-center">A special little moment, just for you.</p>
 
 <div
+<div
   ref={keepsakeRef}
-  className="mx-auto w-full max-w-md aspect-[3/4] bg-contain bg-no-repeat bg-center relative"
-  style={{ backgroundImage: "url('/keepsake-template.png')" }}
+  className="mx-auto w-full max-w-md relative"
 >
+  <img
+    src="/keepsake-template.png"
+    alt="Keepsake template"
+    className="w-full h-auto block rounded-3xl"
+  />
+
   <div className="absolute inset-[14%_12%_14%_12%] flex flex-col items-center justify-center text-center">
     <p className="text-sm text-gray-500 mb-2">This Little One Has a Message</p>
 
