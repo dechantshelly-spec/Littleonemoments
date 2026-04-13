@@ -469,7 +469,12 @@ export default function App() {
   };
 
 const handleSaveKeepsake = async () => {
-  if (!keepsakeRef.current) return;
+  alert("button clicked");
+
+  if (!keepsakeRef.current) {
+    alert("keepsakeRef is missing");
+    return;
+  }
 
   const canvas = await html2canvas(keepsakeRef.current, {
     scale: 2,
