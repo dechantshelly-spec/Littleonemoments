@@ -434,7 +434,28 @@ export default function App() {
 
   const message = useMemo(() => buildMessage(name, momentId, plushie), [name, momentId, plushie]);
   const keepsakeRef = useRef<HTMLDivElement | null>(null);
+const handleSaveKeepsake = async () => {
+  if (!keepsakeRef.current) return;
 
+  try {
+    const canvas = await html2canvas(keepsakeRef.current, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#FFF6EE",
+    });
+
+    const image = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "little-moment-keepsake.png";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } catch (error) {
+    console.error(error);
+    alert("save failed");
+  }
+};
   useEffect(() => {
     const handleBeforeInstallPrompt = (event) => {
       event.preventDefault();
@@ -552,94 +573,81 @@ export default function App() {
           </Button>
         </div>
 
-        <div className="bg-white p-6 rounded-3xl border border-[#E8AEB7] shadow-sm">
+                <div className="bg-white p-6 rounded-3xl border border-[#E8AEB7] shadow-sm">
           {!generated ? (
             <div className="h-full flex items-center justify-center min-h-[320px] text-center">
               <p>Your little friend is ready whenever you are.</p>
             </div>
           ) : (
             <>
-             <h2 className="text-xl mb-2 text-gray-800 text-center">{plushie.name} says:</h2>
-<p className="text-sm text-gray-500 mb-4 text-center">A special little moment, just for you.</p>
+              <h2 className="text-xl mb-2 text-gray-800 text-center">{plushie.name} says:</h2>
+              <p className="text-sm text-gray-500 mb-4 text-center">A special little moment, just for you.</p>
 
-<div
-<div
-  ref={keepsakeRef}
-  className="mx-auto w-full max-w-md relative"
->
-  <img
-    src="/keepsake-template.png"
-    alt="Keepsake template"
-    className="w-full h-auto block rounded-3xl"
-  />
+              <div
+                ref={keepsakeRef}
+                className="mx-auto w-full max-w-md relative"
+              >
+                <img
+                  src="/keepsake-template.png"
+                  alt="Keepsake template"
+                  className="w-full h-auto block rounded-3xl"
+                />
 
-  <div className="absolute inset-[14%_12%_14%_12%] flex flex-col items-center justify-center text-center">
-    <p className="text-sm text-gray-500 mb-2">This Little One Has a Message</p>
+                <div className="absolute inset-[14%_12%_14%_12%] flex flex-col items-center justify-center text-center">
+                  <p className="text-sm text-gray-500 mb-2">This Little One Has a Message</p>
 
-    <p className="text-base font-semibold text-gray-800 mb-4">
-      {moments.find((m) => m.id === momentId)?.label}
-    </p>
+                  <p className="text-base font-semibold text-gray-800 mb-4">
+                    {moments.find((m) => m.id === momentId)?.label}
+                  </p>
 
-    <p className="whitespace-pre-line text-gray-700 leading-7 text-sm">
-      {message}
-    </p>
+                  <p className="whitespace-pre-line text-gray-700 leading-7 text-sm">
+                    {message}
+                  </p>
 
-    <p className="mt-4 text-sm text-gray-600">— {plushie.name}</p>
- <div
-  ref={keepsakeRef}
-  className="mx-auto w-full max-w-md relative"
->
-  <img
-    src="/keepsake-template.png"
-    alt="Keepsake template"
-    className="w-full h-auto block rounded-3xl"
-  />
+                  <p className="mt-4 text-sm text-gray-600">— {plushie.name}</p>
+                </div>
+              </div>
 
-  <div className="absolute inset-[14%_12%_14%_12%] flex flex-col items-center justify-center text-center">
-    <p className="text-sm text-gray-500 mb-2">This Little One Has a Message</p>
+              <div className="mt-6 text-center">
+                <p className="text-sm text-gray-600 mb-3">
+                  Follow along for new little stories and friends
+                </p>
+                <div className="flex gap-3 justify-center flex-wrap">
+                  <a
+                    href="https://www.facebook.com/shelly.dechant"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-4 py-2 rounded-xl border border-[#E8AEB7] bg-white hover:bg-[#EAF4EF] text-sm"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    href="https://www.instagram.com/shellydechant/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-4 py-2 rounded-xl border border-[#E8AEB7] bg-white hover:bg-[#EAF4EF] text-sm"
+                  >
+                    Instagram
+                  </a>
+                </div>
+              </div>
 
-    <p className="text-base font-semibold text-gray-800 mb-4">
-      {moments.find((m) => m.id === momentId)?.label}
-    </p>
+              <Button
+                onClick={handleSaveKeepsake}
+                className="mt-3 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
+              >
+                Save as a Keepsake
+              </Button>
 
-    <p className="whitespace-pre-line text-gray-700 leading-7 text-sm">
-      {message}
-    </p>
-
-    <p className="mt-4 text-sm text-gray-600">— {plushie.name}</p>
-  </div>
-</div>
-
-<div className="mt-6 text-center">
-  <p className="text-sm text-gray-600 mb-3">
-    Follow along for new little stories and friends
-  </p>
-  <div className="flex gap-3 justify-center flex-wrap">
-    <a
-      href="https://www.facebook.com/shelly.dechant"
-      target="_blank"
-      rel="noreferrer"
-      className="px-4 py-2 rounded-xl border border-[#E8AEB7] bg-white hover:bg-[#EAF4EF] text-sm"
-    >
-      Facebook
-    </a>
-    <a
-      href="https://www.instagram.com/shellydechant/"
-      target="_blank"
-      rel="noreferrer"
-      className="px-4 py-2 rounded-xl border border-[#E8AEB7] bg-white hover:bg-[#EAF4EF] text-sm"
-    >
-      Instagram
-    </a>
-  </div>
-</div>
-<Button
-  onClick={() => setGenerated(false)}
-  className="mt-6 w-full border border-[#E8AEB7] bg-white text-gray-700 hover:bg-[#EAF4EF] p-3 rounded-2xl"
->
-  Create Another Moment
-</Button>
-
+              <Button
+                onClick={() => setGenerated(false)}
+                className="mt-3 w-full border border-[#E8AEB7] bg-white text-gray-700 hover:bg-[#EAF4EF] p-3 rounded-2xl"
+              >
+                Create Another Moment
+              </Button>
+            </>
+          )}
+        </div>
 <Button
   onClick={handleSaveKeepsake}
   className="mt-3 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
