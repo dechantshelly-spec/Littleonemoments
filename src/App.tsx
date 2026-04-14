@@ -14,12 +14,12 @@ function Label({ children }) {
 }
 
 const moments = [
-  { id: "calm", label: "Calm & Cozy" },
-  { id: "happy", label: "Happy & Joyful" },
-  { id: "brave", label: "Brave & Strong" },
-  { id: "sleepy", label: "Sleepy & Bedtime" },
-  { id: "comfort", label: "Gentle Comfort" },
-  { id: "curious", label: "Curious & Wonder" }
+1  { id: "calm", label: "I Need Comfort" },
+  { id: "happy", label: "I Feel Happy" },
+1  { id: "confident", label: "I Want To Feel Brave" },
+  { id: "connection", label: "I Need A Hug" },
+  { id: "comfort", label: "I Feel Upset" },
+  { id: "growth", label: "I Want To Try Again" }
 ];
 
 const plushies = [
