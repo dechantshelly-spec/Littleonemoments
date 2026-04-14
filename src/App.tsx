@@ -30,8 +30,13 @@ const plushies = [
   { id: "myfriend", name: "My Friend", emoji: "💛" }
 ];
 
-function buildMessage(name, momentId, plushie, customFriendName) {
+function buildMessage(name, momentId, plushie, customFriendName = '') {
   const child = name || "friend";
+
+  const displayName =
+    plushie.id === "myfriend"
+      ? customFriendName.trim() || "your little friend"
+      : plushie.name;
 
   const displayName =
     plushie.id === "myfriend"
@@ -394,13 +399,15 @@ export default function App() {
   const [customFriendName, setCustomFriendName] = useState("");
 
   const plushie = plushies.find(p => p.id === plushieId) || plushies[0];
-const plushie = plushies.find(p => p.id === plushieId) || plushies[0];
 
 const displayPlushName =
   plushie.id === "myfriend"
     ? customFriendName.trim() || "My Friend"
     : plushie.name;
-  const message = useMemo(() => buildMessage(name, momentId, plushie), [name, momentId, plushie]);
+  const message = useMemo(
+  () => buildMessage(name, momentId, plushie, customFriendName),
+  [name, momentId, plushie, customFriendName]
+);
   const keepsakeRef = useRef<HTMLDivElement | null>(null);
 const handleSaveKeepsake = async () => {
   if (!keepsakeRef.current) return;
