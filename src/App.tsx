@@ -26,16 +26,22 @@ const plushies = [
   { id: "oli", name: "Oli the Octopus", emoji: "🐙" },
   { id: "sarah", name: "Sarah the Turtle", emoji: "🐢" },
   { id: "bean", name: "Bean the Bunny", emoji: "🐰" },
-  { id: "della", name: "Della the Duck", emoji: "🦆" }
+  { id: "della", name: "Della the Duck", emoji: "🦆" },
+  { id: "myfriend", name: "My Friend", emoji: "💛" }
 ];
 
-function buildMessage(name, momentId, plushie) {
+function buildMessage(name, momentId, plushie, customFriendName) {
   const child = name || "friend";
+
+  const displayName =
+    plushie.id === "myfriend"
+      ? customFriendName?.trim() || "your little friend"
+      : plushie.name;
 
   const messages = {
     oli: {
       calm: `${child}, I’m here with you,
-It’s me, ${plushie.name}, soft and true.
+It’s me, ${displayName}, soft and true.
 If your day felt big or long,
 You can rest where you belong.
 
@@ -46,7 +52,7 @@ I’m right here, I’m right here,
 Holding you so calm and near.`,
 
       happy: `${child}, I’m here with you,
-It’s me, ${plushie.name}, happy too.
+It’s me, ${displayName}, happy too.
 When your smile shines so bright,
 Everything feels warm and light.
 
@@ -57,7 +63,7 @@ Happy heart, happy day,
 Let your joy shine all the way.`,
 
       confident: `${child}, I see you try,
-It’s me, ${plushie.name}, I'm nearby.
+It’s me, ${displayName}, I'm nearby.
 Sometimes things feel big or new,
 But I believe so much in you.
 
@@ -68,7 +74,7 @@ You are brave, you are strong,
 You can try all day long.`,
 
       connection: `${child}, come close to me,
-It’s me, ${plushie.name}, as snug as can be.
+It’s me, ${displayName}, as snug as can be.
 If you need a hug today,
 I’m right here, I won’t go away.
 
@@ -79,7 +85,7 @@ Hold me close, hold me tight,
 Everything will be alright.`,
 
       comfort: `${child}, I’m here with you,
-It’s me, ${plushie.name}, gentle and true.
+It’s me, ${displayName}, gentle and true.
 If your feelings feel big today,
 It’s okay to feel this way.
 
@@ -90,7 +96,7 @@ I’m right here, I’m right here,
 You are safe with me, no fear.`,
 
       growth: `${child}, I’m here with you,
-It’s me, ${plushie.name}, kind and true.
+It’s me, ${displayName}, kind and true.
 If something didn’t go your way,
 We can try again today.
 
@@ -103,7 +109,7 @@ You can do more than you know.`
 
     sarah: {
       calm: `${child}, I’m here with you,
-It’s me, ${plushie.name}, soft and true.
+It’s me, ${displayName}, soft and true.
 If your day felt big or long,
 You can rest where you belong.
 
@@ -114,7 +120,7 @@ I’m right here, I’m right here,
 Holding you so calm and near.`,
 
       happy: `${child}, I’m here with you,
-It’s me, ${plushie.name}, happy too.
+It’s me, ${displayName}, happy too.
 When your smile shines so bright,
 Everything feels warm and light.
 
@@ -125,7 +131,7 @@ Happy heart, happy day,
 Let your joy shine all the way.`,
 
       confident: `${child}, I see you try,
-It’s me, ${plushie.name}, I'm nearby.
+It’s me, ${displayName}, I'm nearby.
 Sometimes things feel big or new,
 But I believe so much in you.
 
@@ -136,7 +142,7 @@ You are brave, you are strong,
 You can try all day long.`,
 
       connection: `${child}, come close to me,
-It’s me, ${plushie.name}, as snug as can be.
+It’s me, ${displayName}, as snug as can be.
 If you need a hug today,
 I’m right here, I won’t go away.
 
@@ -147,7 +153,7 @@ Hold me close, hold me tight,
 Everything will be alright.`,
 
       comfort: `${child}, I’m here with you,
-It’s me, ${plushie.name}, gentle and true.
+It’s me, ${displayName}, gentle and true.
 If your feelings feel big today,
 It’s okay to feel this way.
 
@@ -158,7 +164,7 @@ I’m right here, I’m right here,
 You are safe with me, no fear.`,
 
       growth: `${child}, I’m here with you,
-It’s me, ${plushie.name}, kind and true.
+It’s me, ${displayName}, kind and true.
 If something didn’t go your way,
 We can try again today.
 
@@ -171,7 +177,7 @@ You can do more than you know.`
 
     bean: {
       calm: `${child}, I’m here with you,
-It’s me, ${plushie.name}, soft and true.
+It’s me, ${displayName}, soft and true.
 If your day felt big or long,
 You can rest where you belong.
 
@@ -182,7 +188,7 @@ I’m right here, I’m right here,
 Holding you so calm and near.`,
 
       happy: `${child}, I’m here with you,
-It’s me, ${plushie.name}, happy too.
+It’s me, ${displayName}, happy too.
 When your smile shines so bright,
 Everything feels warm and light.
 
@@ -193,7 +199,7 @@ Happy heart, happy day,
 Let your joy shine all the way.`,
 
       confident: `${child}, I see you try,
-It’s me, ${plushie.name}, I'm nearby.
+It’s me, ${displayName}, I'm nearby.
 Sometimes things feel big or new,
 But I believe so much in you.
 
@@ -204,7 +210,7 @@ You are brave, you are strong,
 You can try all day long.`,
 
       connection: `${child}, come close to me,
-It’s me, ${plushie.name}, as snug as can be.
+It’s me, ${displayName}, as snug as can be.
 If you need a hug today,
 I’m right here, I won’t go away.
 
@@ -215,7 +221,7 @@ Hold me close, hold me tight,
 Everything will be alright.`,
 
       comfort: `${child}, I’m here with you,
-It’s me, ${plushie.name}, gentle and true.
+It’s me, ${displayName}, gentle and true.
 If your feelings feel big today,
 It’s okay to feel this way.
 
@@ -226,7 +232,7 @@ I’m right here, I’m right here,
 You are safe with me, no fear.`,
 
       growth: `${child}, I’m here with you,
-It’s me, ${plushie.name}, kind and true.
+It’s me, ${displayName}, kind and true.
 If something didn’t go your way,
 We can try again today.
 
@@ -239,7 +245,7 @@ You can do more than you know.`
 
     della: {
       calm: `${child}, I’m here with you,
-It’s me, ${plushie.name}, soft and true.
+It’s me, ${displayName}, soft and true.
 If your day felt big or long,
 You can rest where you belong.
 
@@ -250,7 +256,7 @@ I’m right here, I’m right here,
 Holding you so calm and near.`,
 
       happy: `${child}, I’m here with you,
-It’s me, ${plushie.name}, happy too.
+It’s me, ${displayName}, happy too.
 When your smile shines so bright,
 Everything feels warm and light.
 
@@ -261,7 +267,7 @@ Happy heart, happy day,
 Let your joy shine all the way.`,
 
       confident: `${child}, I see you try,
-It’s me, ${plushie.name}, I'm nearby.
+It’s me, ${displayName}, I'm nearby.
 Sometimes things feel big or new,
 But I believe so much in you.
 
@@ -272,7 +278,7 @@ You are brave, you are strong,
 You can try all day long.`,
 
       connection: `${child}, come close to me,
-It’s me, ${plushie.name}, as snug as can be.
+It’s me, ${displayName}, as snug as can be.
 If you need a hug today,
 I’m right here, I won’t go away.
 
@@ -283,7 +289,7 @@ Hold me close, hold me tight,
 Everything will be alright.`,
 
       comfort: `${child}, I’m here with you,
-It’s me, ${plushie.name}, gentle and true.
+It’s me, ${displayName}, gentle and true.
 If your feelings feel big today,
 It’s okay to feel this way.
 
@@ -294,7 +300,75 @@ I’m right here, I’m right here,
 You are safe with me, no fear.`,
 
       growth: `${child}, I’m here with you,
-It’s me, ${plushie.name}, kind and true.
+It’s me, ${displayName}, kind and true.
+If something didn’t go your way,
+We can try again today.
+
+Little steps are always okay,
+You can learn along the way.
+
+Try again, nice and slow,
+You can do more than you know.`
+    },
+
+    myfriend: {
+      calm: `${child}, I’m here with you,
+It’s me, ${displayName}, soft and true.
+If your day felt big or long,
+You can rest where you belong.
+
+Snuggle close, don’t rush, don’t run,
+We can slow down, one by one.
+
+I’m right here, I’m right here,
+Holding you so calm and near.`,
+
+      happy: `${child}, I’m here with you,
+It’s me, ${displayName}, happy too.
+When your smile shines so bright,
+Everything feels warm and light.
+
+Laugh and wiggle, clap or cheer,
+I love being happy with you right here.
+
+Happy heart, happy day,
+Let your joy shine all the way.`,
+
+      confident: `${child}, I see you try,
+It’s me, ${displayName}, I'm nearby.
+Sometimes things feel big or new,
+But I believe so much in you.
+
+Take one step, then maybe two,
+I’ll stay right and cheer for you.
+
+You are brave, you are strong,
+You can try all day long.`,
+
+      connection: `${child}, come close to me,
+It’s me, ${displayName}, as snug as can be.
+If you need a hug today,
+I’m right here, I won’t go away.
+
+Wrap me tight, hold me near,
+I’ll stay close and always be here.
+
+Hold me close, hold me tight,
+Everything will be alright.`,
+
+      comfort: `${child}, I’m here with you,
+It’s me, ${displayName}, gentle and true.
+If your feelings feel big today,
+It’s okay to feel this way.
+
+Tears or sighs or quiet time,
+We can sit and feel, it fine.
+
+I’m right here, I’m right here,
+You are safe with me, no fear.`,
+
+      growth: `${child}, I’m here with you,
+It’s me, ${displayName}, kind and true.
 If something didn’t go your way,
 We can try again today.
 
@@ -317,9 +391,15 @@ export default function App() {
   const [showInstallHelp, setShowInstallHelp] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [canInstall, setCanInstall] = useState(false);
+  const [customFriendName, setCustomFriendName] = useState("");
 
   const plushie = plushies.find(p => p.id === plushieId) || plushies[0];
+const plushie = plushies.find(p => p.id === plushieId) || plushies[0];
 
+const displayPlushName =
+  plushie.id === "myfriend"
+    ? customFriendName.trim() || "My Friend"
+    : plushie.name;
   const message = useMemo(() => buildMessage(name, momentId, plushie), [name, momentId, plushie]);
   const keepsakeRef = useRef<HTMLDivElement | null>(null);
 const handleSaveKeepsake = async () => {
@@ -451,10 +531,26 @@ const handleSaveKeepsake = async () => {
                 </Button>
               ))}
             </div>
+            {plushieId === "myfriend" && (
+  <div className="mt-4">
+    <Label>What is your friend’s name?</Label>
+    <Input
+      value={customFriendName}
+      onChange={(e) => setCustomFriendName(e.target.value)}
+      placeholder="Type your plushie's name"
+    />
+  </div>
+)}
           </div>
 
           <Button
-            onClick={() => setGenerated(true)}
+            onClick={() => {
+  if (plushieId === "myfriend" && !customFriendName.trim()) {
+    alert("Please type your friend’s name first 💛");
+    return;
+  }
+  setGenerated(true);
+}}
             className="mt-6 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
           >
             ✨ Create Their Message
@@ -467,7 +563,7 @@ const handleSaveKeepsake = async () => {
             </div>
           ) : (
             <>
-              <h2 className="text-xl mb-2 text-gray-800 text-center">{plushie.name} says:</h2>
+              <h2 className="text-xl mb-2 text-gray-800 text-center">{displayPlushName} says:</h2>
               <p className="text-sm text-gray-500 mb-4 text-center">A special little moment, just for you.</p>
 
               <div
@@ -491,7 +587,7 @@ const handleSaveKeepsake = async () => {
                     {message}
                   </p>
 
-                  <p className="mt-4 text-sm text-gray-600">— {plushie.name}</p>
+                  <p className="mt-4 text-sm text-gray-600">— {displayPlushName}</p>
                 </div>
               </div>
 
