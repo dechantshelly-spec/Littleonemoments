@@ -572,10 +572,7 @@ const handleSaveKeepsake = async () => {
             ✨ Create Their Message
           </Button>
         </div>
-
-                <div className="bg-white p-6 rounded-3xl border border-[#E8AEB7] shadow-sm">
-          {!generated ? (
-                    <div className="bg-white p-6 rounded-3xl border border-[#E8AEB7] shadow-sm">
+             <div className="bg-white p-6 rounded-3xl border border-[#E8AEB7] shadow-sm">
           {!generated ? (
             <div className="h-full flex items-center justify-center min-h-[320px] text-center">
               <p>Your little friend is ready whenever you are.</p>
