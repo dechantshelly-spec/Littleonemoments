@@ -635,7 +635,7 @@ const handleSaveKeepsake = async () => {
                 onClick={handleSaveKeepsake}
                 className="mt-3 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
               >
-                Save as a Keepsake
+                COMING SOON - Save Moment as Keepsake 
               </Button>
 
               <Button
