@@ -14,9 +14,9 @@ function Label({ children }) {
 }
 
 const moments = [
-1  { id: "calm", label: "I Need Comfort" },
+  { id: "calm", label: "I Need Comfort" },
   { id: "happy", label: "I Feel Happy" },
-1  { id: "confident", label: "I Want To Feel Brave" },
+  { id: "confident", label: "I Want To Feel Brave" },
   { id: "connection", label: "I Need A Hug" },
   { id: "comfort", label: "I Feel Upset" },
   { id: "growth", label: "I Want To Try Again" }
