@@ -648,27 +648,7 @@ const handleSaveKeepsake = async () => {
             </>
           )}
         </div>
-<Button
-  onClick={handleSaveKeepsake}
-  className="mt-3 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
->
-  Save as a Keepsake
-</Button>
-
-<p className="mt-4 text-center text-sm text-gray-600">
-  What {plushie.name} loves to say:{" "}
-  {plushie.name === "Oli the Octopus"
-    ? "Think it through, then we do."
-    : plushie.name === "Sarah the Turtle"
-    ? "Slow and steady feels just right."
-    : plushie.name === "Bean the Bunny"
-    ? "Hop with me, we'll find our glee!"
-    : "Little by little, brave can be."}
-</p>
-            </>
-          )}
         </div>
-
       </div>
     </div>
   );
