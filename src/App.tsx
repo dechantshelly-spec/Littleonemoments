@@ -34,7 +34,7 @@ function buildMessage(name, momentId, plushie) {
 
   const messages = {
     oli: {
-      calm: `Hi, ${child}… I’m here with you,
+      calm: `${child}, I’m here with you,
 It’s me, ${plushie.name}, soft and true.
 If your day felt big or long,
 You can rest where you belong.
@@ -43,374 +43,270 @@ Snuggle close, don’t rush, don’t run,
 We can slow down, one by one.
 
 I’m right here, I’m right here,
-Holding you so calm and near..`,
-      
-      happy: `Hi, ${child}! come laugh with me,
-Let’s wiggle and giggle… one, two, three!
+Holding you so calm and near.`,
 
-Clap your hands… stomp your feet,
-Happy moments feel so sweet!
+      happy: `${child}, I’m here with you,
+It’s me, ${plushie.name}, happy too.
+When your smile shines so bright,
+Everything feels warm and light.
 
-Spin around… and laugh out loud,
-You shine bright… happy and proud!
+Laugh and wiggle, clap or cheer,
+I love being happy with you right here.
 
-Bubbles pop… joy flows free,
-Happy feels good… just like the sea!
+Happy heart, happy day,
+Let your joy shine all the way.`,
 
-Stay and play… don’t go away…
-I love this joy with you, ${child}!`,
-      confident: `Hey, ${child}… take my arm,
-We’ll move forward… safe and calm.
+      confident: `${child}, I see you try,
+It’s me, ${plushie.name}, I'm nearby.
+Sometimes things feel big or new,
+But I believe so much in you.
 
-One small step… then one more too,
-That is how brave grows in you.
+Take one step, then maybe two,
+I’ll stay right and cheer for you.
 
-Even if you feel unsure,
-You are strong… of that I’m sure.
+You are brave, you are strong,
+You can try all day long.`,
 
-I’m right here… we’ll take it slow,
-Brave will grow… more than you know.
+      connection: `${child}, come close to me,
+It’s me, ${plushie.name}, as snug as can be.
+If you need a hug today,
+I’m right here, I won’t go away.
 
-You can do this… yes you can…
-I believe in you, ${child}.`,
-      connection: `Shhh now, ${child}… time for bed,
-Rest your body… rest your head.
+Wrap me tight, hold me near,
+I’ll stay close and always be here.
 
-The ocean is quiet… the moon is low,
-Sleep is coming… soft and slow.
+Hold me close, hold me tight,
+Everything will be alright.`,
 
-Close your eyes… drift away,
-Dreams are waiting… on their way.
+      comfort: `${child}, I’m here with you,
+It’s me, ${plushie.name}, gentle and true.
+If your feelings feel big today,
+It’s okay to feel this way.
 
-I’ll stay near… all night through,
-Watching softly… over you.
+Tears or sighs or quiet time,
+We can sit and feel, it fine.
 
-Goodnight now, ${child}… sleep tight.`,
-      comfort: `Oh, ${child}… come close to me,
-It’s okay… to feel wobbly.
+I’m right here, I’m right here,
+You are safe with me, no fear.`,
 
-Take a breath… in… and out,
-Let your feelings move about.
+      growth: `${child}, I’m here with you,
+It’s me, ${plushie.name}, kind and true.
+If something didn’t go your way,
+We can try again today.
 
-You don’t have to be alone,
-You’ve got me… your ocean home.
+Little steps are always okay,
+You can learn along the way.
 
-I’ll stay with you… nice and near,
-You are safe… right here.
-
-I’m right here with you, ${child}.`,
-      curious: `Hey, ${child}… look and see,
-Something glowing… in the sea.
-
-Tiny lights… soft and bright,
-Dancing gently… in the night.
-
-Let’s explore… nice and slow,
-There’s so much here… to know.
-
-Come along… don’t be shy,
-Let’s discover… you and I.
-
-My curious friend, ${child}.`
+Try again, nice and slow,
+You can do more than you know.`
     },
+
     sarah: {
-      calm: `Hello, ${child}… come sit with me,
-We can rest by the quiet sea.
+      calm: `${child}, I’m here with you,
+It’s me, ${plushie.name}, soft and true.
+If your day felt big or long,
+You can rest where you belong.
 
-Slow and steady… in… and out,
-Let your body soften all about.
+Snuggle close, don’t rush, don’t run,
+We can slow down, one by one.
 
-No need to hurry… no need to go,
-We can stay… nice and slow.
+I’m right here, I’m right here,
+Holding you so calm and near.`,
 
-The tide moves gently… calm and light,
-Everything here feels just right.
+      happy: `${child}, I’m here with you,
+It’s me, ${plushie.name}, happy too.
+When your smile shines so bright,
+Everything feels warm and light.
 
-I’m right beside you… safe and near,
-You can relax… I’m right here.
+Laugh and wiggle, clap or cheer,
+I love being happy with you right here.
 
-I’ll stay right here with you, ${child}.`,
-      happy: `Hello, ${child}… I see your light,
-You’re shining warm… and shining bright.
+Happy heart, happy day,
+Let your joy shine all the way.`,
 
-Let’s sway gently… side to side,
-Like soft waves upon the tide.
+      confident: `${child}, I see you try,
+It’s me, ${plushie.name}, I'm nearby.
+Sometimes things feel big or new,
+But I believe so much in you.
 
-Smile so softly… feel it grow,
-A happy glow… nice and slow.
+Take one step, then maybe two,
+I’ll stay right and cheer for you.
 
-Joy can be calm… soft and sweet,
-Like gentle waves beneath your feet.
+You are brave, you are strong,
+You can try all day long.`,
 
-I feel your glow… shining through,
-A quiet joy inside of you.
+      connection: `${child}, come close to me,
+It’s me, ${plushie.name}, as snug as can be.
+If you need a hug today,
+I’m right here, I won’t go away.
 
-My happy friend, ${child}.`,
-      brave: `Hello, ${child}… stay close to me,
-We’ll move slowly… patiently.
+Wrap me tight, hold me near,
+I’ll stay close and always be here.
 
-One small step… then one more too,
-That is how strength grows in you.
+Hold me close, hold me tight,
+Everything will be alright.`,
 
-No need to rush… you’re doing fine,
-Each small step is a brave sign.
+      comfort: `${child}, I’m here with you,
+It’s me, ${plushie.name}, gentle and true.
+If your feelings feel big today,
+It’s okay to feel this way.
 
-Even slow… you are strong,
-You’ve been brave all along.
+Tears or sighs or quiet time,
+We can sit and feel, it fine.
 
-I’m right beside you… all the way,
-You are safe… as you go today.
+I’m right here, I’m right here,
+You are safe with me, no fear.`,
 
-I believe in you, ${child}.`,
-      sleepy: `Hello, ${child}… time to rest,
-Come in close… you are blessed.
+      growth: `${child}, I’m here with you,
+It’s me, ${plushie.name}, kind and true.
+If something didn’t go your way,
+We can try again today.
 
-The tide is slow… the world is still,
-Sleep will come… soft and gentle.
+Little steps are always okay,
+You can learn along the way.
 
-Close your eyes… drift down deep,
-Let your body fall to sleep.
-
-The ocean rocks… side to side,
-Like a cradle on the tide.
-
-I’ll stay with you… the whole night through,
-Watching softly over you.
-
-Goodnight, dear ${child}.`,
-      comfort: `Oh, ${child}… come close to me,
-You are safe… as safe can be.
-
-We can sit… and take our time,
-Let your feelings gently unwind.
-
-Slow and steady… in… and out,
-Let the heavy drift about.
-
-Nothing you feel is ever wrong,
-I’ll stay with you… as long as long.
-
-I’m right beside you… calm and near,
-You are held… right here.
-
-I’m here with you, ${child}.`,
-      curious: `Hello, ${child}… come with me,
-Let’s explore the quiet sea.
-
-Slow and steady… look around,
-There is wonder to be found.
-
-Tiny lights… soft and low,
-Watch them shimmer… watch them glow.
-
-No need to rush… we’ll take it slow,
-There’s so much here to gently know.
-
-Step by step… side by side,
-We’ll explore the ocean wide.
-
-My curious friend, ${child}.`
+Try again, nice and slow,
+You can do more than you know.`
     },
+
     bean: {
-      calm: `Hi, ${child}… come snuggle near,
-I’ll sit right close… right here.
+      calm: `${child}, I’m here with you,
+It’s me, ${plushie.name}, soft and true.
+If your day felt big or long,
+You can rest where you belong.
 
-We can tuck in… soft and tight,
-Everything’s calm… everything’s right.
+Snuggle close, don’t rush, don’t run,
+We can slow down, one by one.
 
-Little breaths… in… and out,
-Let your worries drift about.
+I’m right here, I’m right here,
+Holding you so calm and near.`,
 
-I’ll stay with you… nice and slow,
-No need to hurry… nowhere to go.
+      happy: `${child}, I’m here with you,
+It’s me, ${plushie.name}, happy too.
+When your smile shines so bright,
+Everything feels warm and light.
 
-Soft like fur… warm like a hug,
-All cozy safe… and feeling snug.
+Laugh and wiggle, clap or cheer,
+I love being happy with you right here.
 
-I’m right beside you… yes it’s true…
-All cozy here… with you, ${child}.`,
-      happy: `Hi, ${child}… come play with me!
-Let’s hop around… one, two, three!
+Happy heart, happy day,
+Let your joy shine all the way.`,
 
-Bounce bounce bounce… up we go,
-Giggles start… and overflow!
+      confident: `${child}, I see you try,
+It’s me, ${plushie.name}, I'm nearby.
+Sometimes things feel big or new,
+But I believe so much in you.
 
-Wiggle your nose… wiggle your feet,
-Happy hops are oh so sweet!
+Take one step, then maybe two,
+I’ll stay right and cheer for you.
 
-Spin around… and clap-clap twice,
-Playing with you feels so nice!
+You are brave, you are strong,
+You can try all day long.`,
 
-Jump a little… laugh out loud,
-You make me so happy proud!
+      connection: `${child}, come close to me,
+It’s me, ${plushie.name}, as snug as can be.
+If you need a hug today,
+I’m right here, I won’t go away.
 
-My happy friend, ${child}!`,
-      brave: `Hey, ${child}… hop with me,
-We’ll be brave… just wait and see!
+Wrap me tight, hold me near,
+I’ll stay close and always be here.
 
-One small hop… then one more too,
-Brave gets bigger… inside you.
+Hold me close, hold me tight,
+Everything will be alright.`,
 
-Even if you feel unsure,
-You are strong… of that I’m sure.
+      comfort: `${child}, I’m here with you,
+It’s me, ${plushie.name}, gentle and true.
+If your feelings feel big today,
+It’s okay to feel this way.
 
-Little steps… still count a lot,
-You are braver than you thought!
+Tears or sighs or quiet time,
+We can sit and feel, it fine.
 
-I’ll stay with you… hop by hop,
-We keep going… we don’t stop.
+I’m right here, I’m right here,
+You are safe with me, no fear.`,
 
-I believe in you, ${child}.`,
-      sleepy: `Hi, ${child}… it’s time for bed,
-Rest your body… rest your head.
+      growth: `${child}, I’m here with you,
+It’s me, ${plushie.name}, kind and true.
+If something didn’t go your way,
+We can try again today.
 
-Little bunny curls up tight,
-Snuggled warm all through the night.
+Little steps are always okay,
+You can learn along the way.
 
-Close your eyes… soft and slow,
-Dreamy thoughts begin to flow.
-
-No more hopping… time to rest,
-You are safe… you are blessed.
-
-I’ll stay near… all night through,
-Watching softly over you.
-
-Goodnight, ${child}.`,
-      comfort: `Oh, ${child}… come here with me,
-You can sit… right by me.
-
-If you’re sad… that’s okay,
-I will stay… right here, I’ll stay.
-
-Little breaths… in… and out,
-Let your feelings move about.
-
-You don’t have to feel alone,
-You’ve got me… your bunny home.
-
-I’ll stay close… through it all,
-Big or small… I hear your call.
-
-I’m right here, ${child}.`,
-      curious: `Hey, ${child}… come hop with me!
-Let’s explore… one, two, three!
-
-What’s that sparkle? Did you see?
-Something fun… for you and me!
-
-Hop hop hop… let’s go find out,
-Curious minds love to scout!
-
-Little wonders everywhere,
-Hidden magic here and there!
-
-Sniff the air… and look around,
-So much joy to be found!
-
-My curious friend, ${child}!`
+Try again, nice and slow,
+You can do more than you know.`
     },
+
     della: {
-      calm: `${child}… come sit by me,
-The pond is calm… as calm can be.
+      calm: `${child}, I’m here with you,
+It’s me, ${plushie.name}, soft and true.
+If your day felt big or long,
+You can rest where you belong.
 
-Soft little ripples… slow and light,
-Everything here feels just right.
+Snuggle close, don’t rush, don’t run,
+We can slow down, one by one.
 
-Take a breath… in… and out,
-Let your worries drift about.
+I’m right here, I’m right here,
+Holding you so calm and near.`,
 
-No need to hurry… you can stay,
-Peace can grow in its own way.
+      happy: `${child}, I’m here with you,
+It’s me, ${plushie.name}, happy too.
+When your smile shines so bright,
+Everything feels warm and light.
 
-I’m right here… nice and near,
-You are safe… right here.
+Laugh and wiggle, clap or cheer,
+I love being happy with you right here.
 
-Calm is with you, ${child}.`,
-      happy: `${child}… splash and play!
-Joy is dancing here today!
+Happy heart, happy day,
+Let your joy shine all the way.`,
 
-Water sparkles… bright and free,
-Happy lives in you and me!
+      confident: `${child}, I see you try,
+It’s me, ${plushie.name}, I'm nearby.
+Sometimes things feel big or new,
+But I believe so much in you.
 
-Jump and wiggle… laugh out loud,
-You are shining… happy and proud!
+Take one step, then maybe two,
+I’ll stay right and cheer for you.
 
-Ripples shimmer… fun won’t stop,
-Every giggle goes plip-plop!
+You are brave, you are strong,
+You can try all day long.`,
 
-Stay and play… don’t run away,
-I love this joy with you today!
+      connection: `${child}, come close to me,
+It’s me, ${plushie.name}, as snug as can be.
+If you need a hug today,
+I’m right here, I won’t go away.
 
-My happy friend, ${child}!`,
-      brave: `${child}… step by step,
-You are stronger than you expect.
+Wrap me tight, hold me near,
+I’ll stay close and always be here.
 
-One small step… then one more too,
-That is how brave grows in you.
+Hold me close, hold me tight,
+Everything will be alright.`,
 
-Even when you feel unsure,
-You are strong… of that I’m sure.
+      comfort: `${child}, I’m here with you,
+It’s me, ${plushie.name}, gentle and true.
+If your feelings feel big today,
+It’s okay to feel this way.
 
-Take your time… you’ll find your way,
-Brave gets bigger every day.
+Tears or sighs or quiet time,
+We can sit and feel, it fine.
 
-I’m right here… come what may,
-I believe in you today.
+I’m right here, I’m right here,
+You are safe with me, no fear.`,
 
-You’ve got this, ${child}.`,
-      sleepy: `${child}… evening’s near,
-Soft and quiet all around here.
+      growth: `${child}, I’m here with you,
+It’s me, ${plushie.name}, kind and true.
+If something didn’t go your way,
+We can try again today.
 
-The pond is still… the sky is low,
-Sleep is coming… soft and slow.
+Little steps are always okay,
+You can learn along the way.
 
-Close your eyes… drift away,
-Dreams are on their way.
-
-Snuggle in… safe and tight,
-Resting softly through the night.
-
-I’ll stay near… till morning light,
-Everything will be alright.
-
-Goodnight, ${child}.`,
-      comfort: `${child}… stay with me,
-Safe and calm is where you’ll be.
-
-Take a breath… in… and out,
-Let the heavy drift about.
-
-You don’t have to feel alone,
-You’ve got me… your pond home.
-
-I’ll stay with you… nice and near,
-You are safe… right here.
-
-Little by little… you will see,
-Comfort grows so gently.
-
-I’m right here, ${child}.`,
-      curious: `${child}… what’s that gleam?
-Shiny ripples like a dream!
-
-Come with me… let’s go see,
-What this little glow could be.
-
-Step by step… take a peek,
-Wonder’s hiding where we seek.
-
-Tiny treasures all around,
-Magic waiting to be found!
-
-Let’s explore… you and me,
-There’s so much more to see!
-
-My curious friend, ${child}.`
+Try again, nice and slow,
+You can do more than you know.`
     }
   };
 
-  return messages[plushie.id][momentId] || "A special moment just for you.";
+  return messages[plushie.id]?.[momentId] || "A special moment just for you.";
 }
 
 export default function App() {
