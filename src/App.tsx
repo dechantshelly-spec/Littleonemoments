@@ -630,7 +630,13 @@ const handleSaveKeepsake = async () => {
                   </a>
                 </div>
               </div>
-
+              <Button
+                onClick={() => setGenerated(false)}
+                className="mt-3 w-full border border-[#E8AEB7] bg-white text-gray-700 hover:bg-[#EAF4EF] p-3 rounded-2xl"
+              >
+                Create Another Moment
+              </Button>
+              
              <Button
   onClick={() => alert("Printable keepsakes are coming soon 💛")}
   className="mt-3 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
@@ -638,12 +644,7 @@ const handleSaveKeepsake = async () => {
   Printable keepsakes are coming soon 💛
 </Button>
 
-              <Button
-                onClick={() => setGenerated(false)}
-                className="mt-3 w-full border border-[#E8AEB7] bg-white text-gray-700 hover:bg-[#EAF4EF] p-3 rounded-2xl"
-              >
-                Create Another Moment
-              </Button>
+              
             </>
           )}
         </div>
