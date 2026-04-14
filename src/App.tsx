@@ -631,12 +631,12 @@ const handleSaveKeepsake = async () => {
                 </div>
               </div>
 
-              <Button
-                onClick={handleSaveKeepsake}
-                className="mt-3 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
-              >
-                COMING SOON - Save Moment as Keepsake 
-              </Button>
+             <Button
+  onClick={() => alert("Printable keepsakes are coming soon 💛")}
+  className="mt-3 w-full bg-[#9FB7A3] text-white p-3 rounded-2xl"
+>
+  Save as a Keepsake
+</Button>
 
               <Button
                 onClick={() => setGenerated(false)}
