@@ -34,25 +34,17 @@ function buildMessage(name, momentId, plushie) {
 
   const messages = {
     oli: {
-      calm: `Hi, ${child}… come sit with me,
-The water is calm… as calm can be.
+      calm: `Hi, ${child}… I’m here with you,
+It’s me, ${plushie.name}, soft and true.
+If your day felt big or long,
+You can rest where you belong.
 
-Take a breath… slow and deep,
-Let your body soften and keep.
+Snuggle close, don’t rush, don’t run,
+We can slow down, one by one.
 
-No need to hurry… no need to go,
-We can stay… nice and slow.
-
-The ocean hums… soft and low,
-A quiet place your heart can go.
-
-I’m right here… close and near,
-You are safe… right here.
-
-Just you and me… calm and free…
-Resting together… quietly.
-
-I’m right here with you, ${child}.`,
+I’m right here, I’m right here,
+Holding you so calm and near..`,
+      
       happy: `Hi, ${child}! come laugh with me,
 Let’s wiggle and giggle… one, two, three!
 
@@ -67,7 +59,7 @@ Happy feels good… just like the sea!
 
 Stay and play… don’t go away…
 I love this joy with you, ${child}!`,
-      brave: `Hey, ${child}… take my arm,
+      confident: `Hey, ${child}… take my arm,
 We’ll move forward… safe and calm.
 
 One small step… then one more too,
@@ -81,7 +73,7 @@ Brave will grow… more than you know.
 
 You can do this… yes you can…
 I believe in you, ${child}.`,
-      sleepy: `Shhh now, ${child}… time for bed,
+      connection: `Shhh now, ${child}… time for bed,
 Rest your body… rest your head.
 
 The ocean is quiet… the moon is low,
