@@ -35,11 +35,6 @@ function buildMessage(name, momentId, plushie, customFriendName = '') {
 
   const displayName =
     plushie.id === "myfriend"
-      ? customFriendName.trim() || "your little friend"
-      : plushie.name;
-
-  const displayName =
-    plushie.id === "myfriend"
       ? customFriendName?.trim() || "your little friend"
       : plushie.name;
 
