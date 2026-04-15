@@ -565,7 +565,6 @@ const handleSaveKeepsake = async () => {
             </div>
           ) : (
             <>
-              <h2 className="text-xl mb-2 text-gray-800 text-center">{displayPlushName} says:</h2>
               <p className="text-sm text-gray-500 mb-4 text-center">A special little moment, just for you.</p>
 
               <div
